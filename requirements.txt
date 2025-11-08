@@ -1,0 +1,5 @@
+Flask
+joblib
+langdetect
+numpy
+scikit-learn

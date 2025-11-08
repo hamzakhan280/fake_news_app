@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="panel">
+  <div class="panel-row">
+    <div class="card result-card">
+      <div class="result-head">
+        <h2>{{ final_label }}</h2>
+        <div class="lang">Language: {{ detected_lang }}</div>
+        <div class="model">Model: {{ model_choice }}</div>
+      </div>
+
+      <div class="bars">
+        <div class="bar">
+          <div class="bar-title">ML Model</div>
+          <div class="bar-track"><div class="bar-fill ml-fill" style="width: {{ml_conf}}%"></div></div>
+          <div class="bar-value">{{ ml_conf }}%</div>
+        </div>
+
+        <div class="bar">
+          <div class="bar-title">AI Analysis</div>
+          <div class="bar-track"><div class="bar-fill ai-fill" style="width: {{ai_conf}}%"></div></div>
+          <div class="bar-value">{{ ai_conf }}%</div>
+        </div>
+      </div>
+
+      <div class="explain">
+        <h3>Explanation</h3>
+        <p>{{ explanation }}</p>
+      </div>
+
+      <div class="source">
+        <h4>Source Text</h4>
+        <div class="source-text">{{ text }}</div>
+      </div>
+
+      <div class="actions">
+        <a href="/" class="btn secondary">New Check</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

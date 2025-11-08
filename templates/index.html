@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="panel">
+  <h2>Analyze News Authenticity</h2>
+  <form action="/predict" method="post">
+    <label for="model_choice">Select Model:</label>
+    <select name="model_choice" id="model_choice" required>
+      {% for model_name in model_names %}
+      <option value="{{ model_name }}">{{ model_name }}</option>
+      {% endfor %}
+    </select>
+
+    <label for="language">Language:</label>
+    <select name="language" id="language">
+      <option value="auto">Auto Detect</option>
+      <option value="en">English</option>
+      <option value="ur">Urdu</option>
+    </select>
+
+    <label for="news_text">Enter News Text:</label>
+    <textarea name="news_text" id="news_text" rows="7" placeholder="Paste or type news text here..."></textarea>
+
+    <button type="submit" class="btn">Analyze</button>
+  </form>
+</div>
+{% endblock %}
