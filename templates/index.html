@@ -1,26 +1,64 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="panel">
-  <h2>Analyze News Authenticity</h2>
-  <form action="/predict" method="post">
-    <label for="model_choice">Select Model:</label>
-    <select name="model_choice" id="model_choice" required>
-      {% for model_name in model_names %}
-      <option value="{{ model_name }}">{{ model_name }}</option>
-      {% endfor %}
-    </select>
+<div class="hero">
+  <div class="hero-left">
+    <h1>📰 Detect Misinformation Instantly</h1>
+    <p class="lead">
+      Select your preferred model, paste the article or post text, and receive a clear verdict — complete with confidence scores and detailed analysis.
+    </p>
 
-    <label for="language">Language:</label>
-    <select name="language" id="language">
-      <option value="auto">Auto Detect</option>
-      <option value="en">English</option>
-      <option value="ur">Urdu</option>
-    </select>
+    <form action="/predict" method="post" class="analyze-form">
+      <label for="model_choice">Select Model</label>
+      <select name="model_choice" id="model_choice" required>
+        {% for m in model_names %}
+        <option value="{{ m }}">{{ m }}</option>
+        {% endfor %}
+      </select>
 
-    <label for="news_text">Enter News Text:</label>
-    <textarea name="news_text" id="news_text" rows="7" placeholder="Paste or type news text here..."></textarea>
+      <label for="language">Language</label>
+      <select name="language" id="language">
+        <option value="auto">Auto Detect</option>
+        <option value="en">English</option>
+        <option value="ur">Urdu</option>
+      </select>
 
-    <button type="submit" class="btn">Analyze</button>
-  </form>
+      <label for="news_text">News Text</label>
+      <textarea
+        name="news_text"
+        id="news_text"
+        rows="7"
+        placeholder="Paste or type news content here..."
+        required
+      ></textarea>
+
+      <button type="submit" class="btn primary">
+        🔍 Analyze Now
+      </button>
+    </form>
+  </div>
+
+  <div class="hero-right">
+    <div class="card help-card">
+      <h3>💡 Quick Tips</h3>
+      <ul>
+        <li>Choose any model to test its performance.</li>
+        <li>Enter at least a few sentences for accurate detection.</li>
+        <li>Switch between models to compare accuracy and reliability.</li>
+      </ul>
+      <div class="model-scores">
+        <h4>📊 Model Scores</h4>
+        <ul>
+          <li>Logistic Regression — 98.56%</li>
+          <li>Decision Tree — 99.52%</li>
+          <li>Random Forest — 98.10%</li>
+          <li>Gradient Boosting — <strong>99.53%</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
+
+<footer>
+  <p>© 2025 Fake News Detection | Powered by Flask & ML</p>
+</footer>
 {% endblock %}

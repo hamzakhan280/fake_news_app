@@ -1,142 +1,295 @@
+/* =======================
+   Global Styles
+======================= */
 body {
-  font-family: 'Segoe UI', Tahoma, sans-serif;
-  background-color: #f5f7fa;
-  color: #222;
   margin: 0;
-  padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(90deg,rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+  color: #090909;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-header {
-  background: #1e3a8a;
-  color: white;
-  padding: 15px;
-  text-align: center;
+/* =======================
+   Navbar
+======================= */
+.navbar {
+  background-color: rgba(215, 205, 205, 0.25);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-footer {
-  text-align: center;
-  padding: 10px;
-  background: #f0f0f0;
-  color: #555;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
+.navbar a {
+  color: #decccc;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
 }
 
-.panel {
-  max-width: 800px;
-  margin: 40px auto;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  padding: 25px;
+.navbar a:hover {
+  color: #4CAF50;
 }
 
-form label {
-  display: block;
-  margin-top: 15px;
+/* =======================
+   Hero Section
+======================= */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 60px 10%;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.hero-left {
+  flex: 1 1 50%;
+  min-width: 300px;
+}
+
+.hero-left h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.hero-left p {
+  color: #ddd;
+  font-size: 1.1em;
+  margin-bottom: 30px;
+  line-height: 1.6em;
+}
+
+.analyze-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.analyze-form label {
   font-weight: bold;
 }
 
-textarea, select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.btn {
-  background: #2563eb;
-  color: white;
+.analyze-form select,
+.analyze-form textarea {
+  padding: 12px;
   border: none;
-  border-radius: 6px;
-  padding: 10px 18px;
-  margin-top: 20px;
-  cursor: pointer;
+  border-radius: 8px;
   font-size: 15px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #1a1818;
 }
 
-.btn.secondary {
-  background: #6b7280;
+.analyze-form textarea {
+  resize: vertical;
 }
 
-.btn:hover {
-  opacity: 0.9;
+.analyze-form select:focus,
+.analyze-form textarea:focus {
+  outline: 2px solid #4CAF50;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Buttons */
+.btn.primary {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn.primary:hover {
+  background-color: #45a049;
+}
+
+/* =======================
+   Right Hero Info Card
+======================= */
+.hero-right {
+  flex: 1 1 35%;
+  min-width: 250px;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.card h3 {
+  margin-top: 0;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+
+/* =======================
+   Result Page
+======================= */
+.result-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 50px 10%;
+  flex-grow: 1;
 }
 
 .result-card {
-  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 35px;
+  border-radius: 15px;
+  max-width: 700px;
+  width: 100%;
+  color: #fff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
 }
 
-.result-head h2 {
-  margin-bottom: 5px;
-  font-size: 26px;
-}
-
-.result-head .lang,
-.result-head .model {
-  color: #555;
-  font-size: 14px;
-}
-
-.bars {
-  margin: 20px 0;
-}
-
-.bar {
+.result-title {
+  font-size: 2em;
+  text-align: center;
   margin-bottom: 15px;
-}
-
-.bar-title {
   font-weight: bold;
+  color: #fff;
 }
 
-.bar-track {
-  background: #e5e7eb;
+.result-sub {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  font-size: 0.95em;
+  color: #ddd;
+}
+
+.score-section {
+  margin-bottom: 30px;
+}
+
+.score-bar {
+  margin-bottom: 18px;
+}
+
+.score-bar label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  font-size: 0.95em;
+}
+
+/* =======================
+   Progress Bars
+======================= */
+.bar {
+  position: relative;
   height: 14px;
-  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
   overflow: hidden;
-  margin-top: 5px;
+  margin: 5px 0;
 }
 
-.bar-fill {
+.fill {
   height: 100%;
-  border-radius: 7px;
+  border-radius: 8px;
+  width: 0%;
+  transition: width 0.8s ease-in-out;
 }
 
 .ml-fill {
-  background: #2563eb;
+  background-color: #007bff;
 }
 
 .ai-fill {
-  background: #16a34a;
+  background-color: #28a745;
 }
 
-.bar-value {
-  text-align: right;
-  font-size: 13px;
-  color: #555;
+.fake-fill {
+  background-color: #dc3545;
 }
 
-.explain {
-  background: #f9fafb;
-  padding: 15px;
-  border-radius: 8px;
+.score-value {
+  float: right;
+  font-size: 0.9em;
+  color: #eee;
+  margin-top: 4px;
 }
 
-.source {
-  margin-top: 20px;
-}
-
+/* =======================
+   Explanation Box
+======================= */
+.explanation,
 .source-text {
-  background: #f3f4f6;
-  border-radius: 8px;
-  padding: 12px;
-  white-space: pre-wrap;
+  margin-top: 25px;
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 15px;
+  border-radius: 10px;
+  word-break: break-word;
 }
 
+.explanation h3,
+.source-text h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+/* =======================
+   Action Buttons
+======================= */
 .actions {
+  margin-top: 30px;
   text-align: center;
-  margin-top: 25px;
+}
+
+.actions .btn {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: white;
+  background-color: #4CAF50;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.actions .btn:hover {
+  background-color: #45a049;
+}
+
+/* =======================
+   Footer
+======================= */
+footer {
+  text-align: center;
+  padding: 15px;
+  margin-top: auto;
+  font-size: 14px;
+  color: #ccc;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* =======================
+   Responsive Design
+======================= */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-left,
+  .hero-right {
+    flex: 1 1 100%;
+  }
+
+  .result-card {
+    padding: 25px;
+  }
 }
